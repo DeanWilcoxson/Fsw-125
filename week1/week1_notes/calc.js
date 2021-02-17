@@ -31,9 +31,9 @@ module.exports = {
     squaredFx: squaredFx,
     squaredFx2: squaredFx2,
     whatever: 'string of whatever'
-} /// has no () b/c everytime in JS we pass around fucntions we dont use () only when we invoke functions do we
+} /// has no () b/c every time in JS we pass around functions we don't use () only when we invoke functions do we
 
 
 // module.exports = {
-//     nameOfFunction: actualFuncion
+//     nameOfFunction: actualFunction
 // }
