@@ -3,13 +3,11 @@
 Learning goals for weeks 1 & 2 => familiarize ourselves more with node while refreshing parts of vanilla JS that will help us move into writing our own servers with express.js in the coming weeks.
 
 ## Agenda
-
     1) Introduction
     2) Problem Solving Process
     3) How To Ask a "Good" Question
     4) Node.js => Node Patterns and Modularization
     5) Callbacks, Closure, & The Node Event Loop *
-
 ### 2. Problem Solving Process
 
 Starting and maintaining a good problem solving process is a **vital** skill as a programmer. This is especially important for students and soon to be junior level devs.

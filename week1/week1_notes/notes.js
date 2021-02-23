@@ -1,19 +1,12 @@
 // notes.js
-
 // node.js
 // local JS runtime environment
-
 
 // es6 syntactical sugar over module.exports / require
 // import WhateverComponent from '../whateverComponent'
 // export default WhateverComponent
 
-
 // module.exports/export and require/import
-
-
-
-
 
 // OOP 
 // 4 pillars => abstraction, encapsulation, polymorphism, inheritance
@@ -22,14 +15,6 @@
 // more easily readable
 // easier to debug
 // single source of truth
-
-
-
-
-
-
-
-
 
 // language has 1st class functions if we can treat those functions like any given variable
 // 
@@ -55,9 +40,6 @@ const exampleStoring = callbackExample;
 // 
 // 
 // 
-
-
-
 
 // closure & scoping
 // var (globally scoped/function scoped)
@@ -97,5 +79,3 @@ const arrowFunction = () => {
 // Node event loop is async non-blocking I/O
 // multi-threaded (kernel)
 // supermarket you are checking out with the self service kiosks
-
-
