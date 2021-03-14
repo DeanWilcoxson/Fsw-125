@@ -9,6 +9,12 @@ router.get("/", (req, res) => {
   res.send(todos);
 });
 
+router.get("/:todoId", (req, res)=>{
+  const todoId = req.params.todoId
+  const getTodo = todos.find(todo => todo.id === todoId)
+  res.send(getTodo)
+})
+
 router.post("/", (req, res) => {
   const newTodo = req.body;
   newTodo.id = uuidv4();
