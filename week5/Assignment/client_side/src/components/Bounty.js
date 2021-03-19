@@ -1,12 +1,15 @@
 import React from "react";
 export default function Bounty(props) {
+  const { firstName, lastName, type, living, bountyAmt } = props;
   return (
-    <div>
-      <p>
-        {props.firstName} {props.lastName} : {props.type} : ${props.bountyAmt}{" "}
-        Alive?:
-        {props.living ? "Yes" : "No"}
+    <div className="bounty">
+      <h1 className="bountyName">
+        Name: {firstName} {lastName}
+      </h1>
+      <p className="bountyStatus">
+        Affiliation: {type} : {living ? "Alive" : "Deceased"}
       </p>
+      <p className="bountyAmt">Bounty: ${bountyAmt}</p>
     </div>
   );
 }

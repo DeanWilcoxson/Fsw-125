@@ -3,17 +3,20 @@ import axios from "axios";
 import Bounty from "./Bounty";
 export default function Bounties() {
   const [bounties, setBounties] = useState([]);
-  useEffect(() => {
+  function getBounties() {
     axios
       .get("/bounties")
       .then((res) => setBounties(res.data))
       .catch((error) => console.log(error));
+  }
+
+  useEffect(() => {
+    getBounties();
   }, []);
 
   return (
     <div>
       {bounties.map((x) => {
-        console.log(x);
         return (
           <div key={x.id}>
             <Bounty

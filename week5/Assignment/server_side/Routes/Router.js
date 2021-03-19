@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
   const newBounty = req.body
   newBounty.id = uuidv4()
   bounties.push(newBounty)
-  res.send(`New object ${req.body.firstName} ${req.body.lastName} added to the database.`)
+  res.send(newBounty)
 })
 router.delete("/:bountyId", (req, res) => {
   const bountyId = req.params.bountyId
