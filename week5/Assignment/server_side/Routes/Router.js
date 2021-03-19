@@ -8,7 +8,7 @@ let bounties = [
     lastName: "Maul",
     living: true,
     bountyAmt: 10000000,
-    type: "sith",
+    type: "Sith",
     id: uuidv4(),
   },
   {
@@ -16,7 +16,7 @@ let bounties = [
     lastName: "Vader",
     living: true,
     bountyAmt: 15000000,
-    type: "sith",
+    type: "Sith",
     id: uuidv4(),
   },
   {
