@@ -12,7 +12,7 @@ export default class Form extends Component {
     };
   }
   handleSubmit = () => {};
-  handleChange = () => {};
+  handleChange = (e) => {};
   render() {
     return (
       <form id="form" name="form" onSubmit={this.handleSubmit}>
