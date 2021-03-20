@@ -1,22 +1,44 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import Bounties from "./components/Bounties";
 import Form from "./components/Form";
 import "./Styles.css";
 
 export default function App() {
-function addBounty(newBounty){
-  axios.post("/bounties", newBounty)
-  .then(res => console.log(res))
-  .catch(err => console.log(err))
-}
+  const [bounties, setBounties] = useState([]);
+  function getBounties() {
+    axios
+      .get("/bounties")
+      .then((res) => setBounties(res.data))
+      .catch((err) => console.log(err));
+  }
+  function addBounty(newBounty) {
+    axios
+      .post("/bounties", newBounty)
+      .then((res) => setBounties((prevBounties) => [...prevBounties, res.data]))
+      .catch((err) => console.log(err));
+  }
+  function delBounty(bountyId) {
+    axios
+      .delete(`/bounties/${bountyId}`)
+      .then((res) => {
+        setBounties((prevBounties) =>
+          prevBounties.filter((bounty) => bounty.id !== bountyId)
+        );
+      })
+      .catch((err) => console.lof(err));
+  }
 
   return (
     <div id="appDiv">
       <h1 id="header">Bounty Hunter HQ</h1>
       <hr />
-      <Form addBounty={addBounty}/>
-      <Bounties />
+      <Form addBounty={addBounty} />
+      <Bounties
+        bounties={bounties}
+        getBounties={getBounties}
+        delBounty={delBounty}
+      />
     </div>
   );
 }

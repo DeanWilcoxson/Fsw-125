@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import Bounty from "./Bounty";
-export default function Bounties() {
-  const [bounties, setBounties] = useState([]);
-  function getBounties() {
-    axios
-      .get("/bounties")
-      .then((res) => setBounties(res.data))
-      .catch((error) => console.log(error));
-  }
+export default function Bounties(props) {
+  
+ const{bounties, getBounties, delBounty} = props
 
   useEffect(() => {
     getBounties();
-  }, []);
+  });
 
   return (
     <div>
@@ -25,6 +19,7 @@ export default function Bounties() {
               type={x.type}
               bountyAmt={x.bountyAmt}
               living={x.living}
+              delBounty={delBounty}
             />
           </div>
         );

@@ -35,7 +35,7 @@ export default function Form(props) {
         placeholder="Last Name"
         onChange={handleChange}
       ></input>
-      <select name="type" id="type" onChange={handleChange} value={inputs.type}>
+      <select name="type" id="type" onChange={handleChange} >
         <option name="none" className="type" value="Unknown">
           Affiliation
         </option>
@@ -47,18 +47,18 @@ export default function Form(props) {
         </option>
       </select>
       <select
-        name="alive"
+        name="living"
         id="living"
         onChange={handleChange}
-        value={inputs.living.option}
+        value={inputs.living}
       >
-        <option name="isAlive" className="living" value="Unknown">
+        <option name="living" className="living" value="Unknown">
           Living
         </option>
         <option name="living" className="living" value="Alive">
           Yes
         </option>
-        <option name="notAlive" className="living" value="Deceased">
+        <option name="living" className="living" value="Deceased">
           No
         </option>
       </select>
@@ -70,7 +70,7 @@ export default function Form(props) {
         placeholder="Amount held for payment"
         onChange={handleChange}
       ></input>
-      <button>Submit</button>
+      <button id="subBtn">Submit</button>
     </form>
   );
 }
