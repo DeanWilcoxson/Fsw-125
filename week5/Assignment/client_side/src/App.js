@@ -28,7 +28,19 @@ export default function App() {
       })
       .catch((err) => console.lof(err));
   }
-
+  function editBounty(updates, bountyId) {
+    console.log(updates, bountyId)
+    axios
+      .put(`/bounties/${bountyId}`, updates)
+      .then((res) =>
+        setBounties((prevBounties) =>
+          prevBounties.map((bounty) =>
+            bounty.id !== bountyId ? bounty : res.data
+          )
+        )
+      )
+      .catch((err) => console.log(err));
+  }
   return (
     <div id="appDiv">
       <h1 id="header">Bounty Hunter HQ</h1>
@@ -38,6 +50,7 @@ export default function App() {
         bounties={bounties}
         getBounties={getBounties}
         delBounty={delBounty}
+        editBounty={editBounty}
       />
     </div>
   );

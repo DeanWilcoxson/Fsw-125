@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import Bounty from "./Bounty";
 export default function Bounties(props) {
-  
- const{bounties, getBounties, delBounty} = props
+  const { bounties, getBounties, delBounty, editBounty } = props;
 
   useEffect(() => {
     getBounties();
@@ -14,12 +13,14 @@ export default function Bounties(props) {
         return (
           <div key={x.id}>
             <Bounty
+              id={x.id}
               firstName={x.firstName}
               lastName={x.lastName}
               type={x.type}
               bountyAmt={x.bountyAmt}
               living={x.living}
               delBounty={delBounty}
+              editBounty={editBounty}
             />
           </div>
         );

@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 export default function Form(props) {
   const initInputs = {
-    firstName: "",
-    lastName: "",
-    type: "",
-    living: false,
-    bountyAmt: 0,
+    firstName: props.firstName || "",
+    lastName: props.lastName || "",
+    type: props.type || "",
+    living: props.living || false,
+    bountyAmt: props.bountyAmt || 0,
   };
   const [inputs, setInputs] = useState(initInputs);
-
+  function handleDropDown(e) {
+    e.target.value === "true"
+      ? setInputs((prevInputs) => ({ ...prevInputs, living: true }))
+      : setInputs((prevInputs) => ({ ...prevInputs, living: false }));
+  }
   function handleChange(e) {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
   }
   function handleSubmit() {
-    props.addBounty(inputs);
+    console.log(inputs, props.id);
+    props.addBounty(inputs, props.id);
     setInputs(initInputs);
   }
   return (
@@ -35,7 +40,7 @@ export default function Form(props) {
         placeholder="Last Name"
         onChange={handleChange}
       ></input>
-      <select name="type" id="type" onChange={handleChange} >
+      <select name="type" id="type" onChange={handleChange}>
         <option name="none" className="type" value="Unknown">
           Affiliation
         </option>
@@ -49,16 +54,16 @@ export default function Form(props) {
       <select
         name="living"
         id="living"
-        onChange={handleChange}
+        onChange={handleDropDown}
         value={inputs.living}
       >
-        <option name="living" className="living" value="Unknown">
+        <option name="living" className="living" value={"Unknown"}>
           Living
         </option>
-        <option name="living" className="living" value="Alive">
+        <option name="living" className="living" value={"Alive"}>
           Yes
         </option>
-        <option name="living" className="living" value="Deceased">
+        <option name="living" className="living" value={"Deceased"}>
           No
         </option>
       </select>

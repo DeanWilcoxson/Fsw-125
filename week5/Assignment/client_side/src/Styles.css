@@ -29,6 +29,8 @@ body {
     background-color: rgba(128, 128, 128, 0.358);
     border: 1px solid black;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .bountyName {
@@ -49,6 +51,13 @@ body {
 .delBtn {
     background-color: red;
     color: white;
+    width: 25%;
+}
+
+.editBtn {
+    background-color: blue;
+    color: white;
+    width: 25%;
 }
 
 #subBtn {
