@@ -8,30 +8,31 @@ export default function App() {
   const [bounties, setBounties] = useState([]);
   function getBounties() {
     axios
-      .get("/bounties")
+      .get("http://localhost:9000/bounties")
       .then((res) => setBounties(res.data))
       .catch((err) => console.log(err));
   }
   function addBounty(newBounty) {
     axios
-      .post("/bounties", newBounty)
+      .post("http://localhost:9000/bounties", newBounty)
       .then((res) => setBounties((prevBounties) => [...prevBounties, res.data]))
       .catch((err) => console.log(err));
   }
   function delBounty(bountyId) {
+    console.log(bountyId)
     axios
-      .delete(`/bounties/${bountyId}`)
+      .delete(`http://localhost:9000/bounties/${bountyId}`)
       .then((res) => {
         setBounties((prevBounties) =>
-          prevBounties.filter((bounty) => bounty.id !== bountyId)
+          prevBounties.filter((bounty) => bounty.id === bountyId)
         );
       })
       .catch((err) => console.lof(err));
   }
   function editBounty(updates, bountyId) {
-    console.log(updates, bountyId)
+    console.log(updates, bountyId);
     axios
-      .put(`/bounties/${bountyId}`, updates)
+      .put(`http://localhost:9000/bounties/${bountyId}`, updates)
       .then((res) =>
         setBounties((prevBounties) =>
           prevBounties.map((bounty) =>

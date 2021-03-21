@@ -29,6 +29,7 @@ let bounties = [
   },
 ];
 router.get("/", (req, res) => {
+  // console.log("get")
   res.send(bounties);
 });
 router.get("/:bountyId", (req, res) => {

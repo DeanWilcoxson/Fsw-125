@@ -2,14 +2,10 @@ import React, { useEffect } from "react";
 import Bounty from "./Bounty";
 export default function Bounties(props) {
   const { bounties, getBounties, delBounty, editBounty } = props;
-
   useEffect(() => {
     getBounties();
   });
-
-  return (
-    <div>
-      {bounties.map((x) => {
+const bountyList = bounties.map((x) => {
         return (
           <div key={x.id}>
             <Bounty
@@ -24,7 +20,11 @@ export default function Bounties(props) {
             />
           </div>
         );
-      })}
+      })
+
+  return (
+    <div>
+      {bountyList}
     </div>
   );
 }

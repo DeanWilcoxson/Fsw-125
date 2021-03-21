@@ -23,7 +23,7 @@ export default function Bounty(props) {
             Affiliation: {type} : {living ? "Alive" : "Deceased"}
           </p>
           <p className="bountyAmt">Bounty: ${bountyAmt}</p>
-          <button className="delBtn" onClick={delBounty}>
+          <button className="delBtn" onClick={() => delBounty(id)}>
             Delete
           </button>
           <button

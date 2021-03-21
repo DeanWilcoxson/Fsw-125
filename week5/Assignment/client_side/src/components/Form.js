@@ -17,7 +17,7 @@ export default function Form(props) {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
   }
-  function handleSubmit() {
+  function handleSubmit(e) {
     console.log(inputs, props.id);
     props.addBounty(inputs, props.id);
     setInputs(initInputs);
@@ -55,15 +55,15 @@ export default function Form(props) {
         name="living"
         id="living"
         onChange={handleDropDown}
-        value={inputs.living}
+        value={inputs.living.value}
       >
-        <option name="living" className="living" value={"Unknown"}>
+        <option name="living" className="living">
           Living
         </option>
-        <option name="living" className="living" value={"Alive"}>
+        <option name="living" className="living" value={"true"}>
           Yes
         </option>
-        <option name="living" className="living" value={"Deceased"}>
+        <option name="living" className="living" value={"false"}>
           No
         </option>
       </select>
