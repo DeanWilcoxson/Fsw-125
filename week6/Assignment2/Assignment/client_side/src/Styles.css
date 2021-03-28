@@ -1,0 +1,66 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1568578728400-95dd4f33a85b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwxfHxib3VudHklMjBodW50ZXJ8ZW58MHx8fHwxNjE1OTYxOTYx&ixlib=rb-1.2.1&q=80&w=1080");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 41, 128, 0.296);
+}
+
+#appDiv {
+    width: 100%;
+}
+
+#header {
+    color: white;
+    text-align: center;
+    text-shadow: black 3px 3px 5px;
+}
+
+.bounty {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.358);
+    border: 1px solid black;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.bountyName {
+    color: #fff;
+    text-shadow: black 3px 3px 5px;
+}
+
+.bountyStatus {
+    text-shadow: black 3px 3px 5px;
+    color: #fff;
+}
+
+.bountyAmt {
+    text-shadow: black 3px 3px 5px;
+    color: #fff;
+}
+
+.delBtn {
+    background-color: red;
+    color: white;
+    width: 25%;
+}
+
+.editBtn {
+    background-color: blue;
+    color: white;
+    width: 25%;
+}
+
+#subBtn {
+    background-color: green;
+    color: white;
+}
