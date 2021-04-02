@@ -44,7 +44,7 @@ export default function App() {
   }
   return (
     <div id="appDiv">
-      <h1 id="header">Bounty Hunter HQ</h1>
+      <h1 id="header">The Bounty Hunter</h1>
       <hr />
       <Form addBounty={addBounty} />
       <Bounties
