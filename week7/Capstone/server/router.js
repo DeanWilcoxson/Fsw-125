@@ -32,18 +32,9 @@ let bounties = [
   },
 ];
 
-
-
-
-
 // router.get("/", (req, res) => {
 //   res.status(200).send(bounties);
 // });
-
-
-
-
-
 
 router.get("/:bountyId", (req, res, next) => {
   const bountyId = req.params.bountyId;
