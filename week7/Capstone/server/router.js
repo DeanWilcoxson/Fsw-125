@@ -31,21 +31,30 @@ let bounties = [
     id: uuidv4(),
   },
 ];
-router.get("/", (req, res) => {
-  // console.log("get")
-  res.status(200);
-  res.send(bounties);
-});
+
+
+
+
+
+// router.get("/", (req, res) => {
+//   res.status(200).send(bounties);
+// });
+
+
+
+
+
 
 router.get("/:bountyId", (req, res, next) => {
   const bountyId = req.params.bountyId;
   const getBounty = bounties.find((bounty) => bounty.id === bountyId);
-  if (!getBounty) {
+  if (!getBounty || Object.values(getBounty).length === 0) {
     const error = new Error(`Item Id ${bountyId} Not Found`);
     res.status(500);
     return next({ errMsg: error.message });
+  } else {
+    res.status(200).send(getBounty);
   }
-  res.status(200).send(getBounty);
 });
 
 router.get("/search/type", (req, res) => {
@@ -54,7 +63,7 @@ router.get("/search/type", (req, res) => {
   if (!type) {
     const error = new Error("You must provide a type");
     res.status(500);
-    return next({ errMsg: error.message }, error);
+    return next({ errMsg: error.message });
   }
   res.status(200).send(foundBounties);
 });
@@ -68,10 +77,11 @@ router.post("/", (req, res) => {
 router.delete("/:bountyId", (req, res) => {
   const bountyId = req.params.bountyId;
   const bountyIndex = bounties.findIndex((bounty) => bounty.id === bountyId);
-  if (!bountyId) {
+  console.log(bountyIndex);
+  if (!bountyId || bountyIndex === -1) {
     const error = new Error(`Item ${bountyId} Not Found`);
     res.status(500);
-    return next({ errMsg: error.message }, error);
+    return next({ errMsg: error.message });
   } else {
     bounties.splice(bountyIndex, 1);
     res.status(201).send("Bounty Deleted");
