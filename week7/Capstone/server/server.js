@@ -9,12 +9,10 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use("/bounties", router);
 
-//error handler
 app.use((err, req, res, next) => {
   console.log(err);
-  return res.send({errMsg: err.message})
+  return res.send({ errMsg: err.message });
 });
-
 app.listen(8000, () => {
   console.log("Server is running on LocalHost:8000");
 });

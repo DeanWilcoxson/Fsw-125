@@ -14,59 +14,61 @@ export default function Bounty(props) {
   } = props;
   const [editToggle, setEditToggle] = useState(false);
   return (
-    <div className="bounty">
-      {!editToggle ? (
-        <>
-          <h1 className="bountyName">
-            Name: {firstName} {lastName}
-          </h1>
-          <p className="bountyStatus">
-            Affiliation: {type} : {living ? "Alive" : "Deceased"}
-          </p>
-          <div className="forcePowers">
-            ForcePowers:
-            {forcePowers.map((x) => {
-              return (
-                <ul className="powersList">
-                  <li className="power">{x}</li>
-                </ul>
-              );
-            })}
+    <div className="bountyGrid">
+      <div className="bounty">
+        {!editToggle ? (
+          <div key={id}>
+            <h1 className="bountyName">
+              Name: {firstName} {lastName}
+            </h1>
+            <p className="bountyStatus">
+              Affiliation: {type} : {living ? "Alive" : "Deceased"}
+            </p>
+            <div className="forcePowers">
+              Force Powers:
+              {forcePowers.map((x) => {
+                return (
+                  <ul className="powersList">
+                    <li className="power">{x}</li>
+                  </ul>
+                );
+              })}
+            </div>
+            <p className="bountyAmt">Bounty: ${bountyAmt}</p>
+            <button className="delBtn" onClick={() => delBounty(id)}>
+              Delete
+            </button>
+            <button
+              className="editBtn"
+              onClick={() => {
+                setEditToggle((prevToggle) => !prevToggle);
+              }}
+            >
+              Edit
+            </button>
           </div>
-          <p className="bountyAmt">Bounty: ${bountyAmt}</p>
-          <button className="delBtn" onClick={() => delBounty(id)}>
-            Delete
-          </button>
-          <button
-            className="editBtn"
-            onClick={() => {
-              setEditToggle((prevToggle) => !prevToggle);
-            }}
-          >
-            Edit
-          </button>
-        </>
-      ) : (
-        <>
-          <Form
-            firstName={firstName}
-            lastName={lastName}
-            type={type}
-            living={living}
-            bountyAmt={bountyAmt}
-            id={id}
-            addBounty={editBounty}
-          />
-          <button
-            className="closeEditBtn"
-            onClick={() => {
-              setEditToggle((prevToggle) => !prevToggle);
-            }}
-          >
-            Close
-          </button>
-        </>
-      )}
+        ) : (
+          <div>
+            <Form
+              firstName={firstName}
+              lastName={lastName}
+              type={type}
+              living={living}
+              bountyAmt={bountyAmt}
+              id={id}
+              addBounty={editBounty}
+            />
+            <button
+              className="closeEditBtn"
+              onClick={() => {
+                setEditToggle((prevToggle) => !prevToggle);
+              }}
+            >
+              Close
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

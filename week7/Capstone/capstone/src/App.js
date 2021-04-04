@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Bounties from "./Components/Bounties";
+import Footer from "./Components/Footer";
 import Form from "./Components/Form";
 import "./Styles.css";
 
@@ -53,6 +54,7 @@ export default function App() {
         delBounty={delBounty}
         editBounty={editBounty}
       />
+      <Footer />
     </div>
   );
 }
