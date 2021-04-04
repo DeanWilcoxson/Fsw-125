@@ -4,7 +4,7 @@ export default function Bounties(props) {
   const { bounties, getBounties, delBounty, editBounty } = props;
   useEffect(() => {
     getBounties();
-  }, []);
+  });
   const bountyList = bounties.map((x) => {
     return (
       <div key={x.id}>
