@@ -7,6 +7,8 @@ import "./Styles.css";
 
 export default function App() {
   const [bounties, setBounties] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
+  console.log(searchKeyword)
   function getBounties() {
     axios
       .get("http://localhost:8000/bounties")
@@ -48,11 +50,17 @@ export default function App() {
       <h1 id="header">The Bounty Hunter</h1>
       <hr />
       <Form addBounty={addBounty} />
+      <input
+        type="text"
+        placeholder="Search by type"
+        onChange={e =>{setSearchKeyword(e.target.value)}}
+      ></input>
       <Bounties
         bounties={bounties}
         getBounties={getBounties}
         delBounty={delBounty}
         editBounty={editBounty}
+        searchKeyword={searchKeyword}
       />
       <Footer />
     </div>
