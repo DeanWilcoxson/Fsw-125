@@ -30,7 +30,7 @@ export default function App() {
           prevBounties.filter((bounty) => bounty.id === bountyId)
         );
       })
-      .catch((err) => console.lof(err));
+      .catch((err) => console.log(err));
   }
   function editBounty(updates, bountyId) {
     console.log(updates, bountyId);
