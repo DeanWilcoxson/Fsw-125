@@ -65,6 +65,7 @@ router.post("/", (req, res) => {
   bounties.push(newBounty);
   res.status(201).send(newBounty);
 });
+
 router.delete("/:bountyId", (req, res) => {
   const bountyId = req.params.bountyId;
   const bountyIndex = bounties.findIndex((bounty) => bounty.id === bountyId);

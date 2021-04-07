@@ -8,7 +8,7 @@ import "./Styles.css";
 export default function App() {
   const [bounties, setBounties] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState("");
-  console.log(searchKeyword)
+  console.log(searchKeyword);
   function getBounties() {
     axios
       .get("http://localhost:8000/bounties")
@@ -51,9 +51,12 @@ export default function App() {
       <hr />
       <Form addBounty={addBounty} />
       <input
+        id="searchBar"
         type="text"
         placeholder="Search by type"
-        onChange={e =>{setSearchKeyword(e.target.value)}}
+        onChange={(e) => {
+          setSearchKeyword(e.target.value);
+        }}
       ></input>
       <Bounties
         bounties={bounties}

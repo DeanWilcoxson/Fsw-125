@@ -4,7 +4,7 @@ export default function Bounties(props) {
   const { bounties, getBounties, delBounty, editBounty, searchKeyword } = props;
   useEffect(() => {
     getBounties();
-  });
+  },[]);
   const bountyList = bounties
     .filter((x) => {
       if (searchKeyword === "") {
