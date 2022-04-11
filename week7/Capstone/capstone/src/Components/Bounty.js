@@ -26,13 +26,15 @@ export default function Bounty(props) {
             </p>
             <div className="forcePowers">
               Force Powers:
-              {forcePowers.map((x) => {
-                return (
-                  <ul className="powersList">
-                    <li className="power">{x}</li>
-                  </ul>
-                );
-              })}
+              <ul className="powersList">
+                {forcePowers.map((x) => {
+                  return (
+                    <li className="power" key={forcePowers.indexOf(x)}>
+                      {x}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
             <p className="bountyAmt">Bounty: ${bountyAmt}</p>
             <button className="delBtn" onClick={() => delBounty(id)}>

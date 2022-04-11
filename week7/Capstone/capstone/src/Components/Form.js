@@ -89,7 +89,6 @@ export default function Form(props) {
             placeholder="Force Powers"
             id="forcePowers"
             onChange={handleChange}
-            required
           ></input>
           <button onClick={handlePowers}>Add Power</button>
         </div>
